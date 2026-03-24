@@ -51,12 +51,17 @@ echo $ELEVENLABS_API_KEY  # must be set
 
 ### Step 1: Gather Requirements
 
+**IMPORTANT: Do NOT proceed to Step 2 until ALL requirements below are confirmed by the user.** Do not assume values from prior conversations, project context, or defaults. Every item must be explicitly provided or confirmed.
+
 Ask the user for:
+
 1. **Which page/feature to demo** — URL path and what sections to highlight
-2. **What each section should say** — or generate narration from the page content
-3. **Voice preference** — search ElevenLabs library if needed
-4. **Auth flow** — how to log in to the app
-5. **Branding** — ask the user to either:
+2. **Voice preference:**
+   - Ask if they have an ElevenLabs voice ID they want to use
+   - If not, ask for accent, gender, and tone preference, then search the voice library and generate short samples for them to choose from
+   - **Do not proceed without a confirmed voice ID**
+3. **Auth flow** (screen recording mode only) — how to log in to the app (URL, credentials, form selectors)
+4. **Branding** — ask the user to either:
 
    **Option A: Point to existing brand docs.** Ask if there's a brand guidelines file, style guide, design tokens file, or tailwind config in the project. Common locations:
    - `CLAUDE.md`, `README.md`, `design.md`, `brand.md`
@@ -66,7 +71,7 @@ Ask the user for:
    - `package.json` name/description for product name
    - Any existing marketing pages (`src/app/(marketing)/page.tsx`, `public/index.html`)
 
-   Read the referenced files and extract: brand colours, logo path, product name, tagline, URL, and font. Fill in any gaps by asking the user directly.
+   Read the referenced files and extract: brand colours, logo path, product name, tagline, URL, and font. **Present what was found and ask the user to confirm before proceeding.**
 
    **Option B: Provide details directly:**
    - Primary brand colour hex (used for section highlight outlines)
@@ -77,6 +82,28 @@ Ask the user for:
    - CTA text (e.g. "Get in touch", "Start your free trial", "Book a demo")
    - Font preference if not system default (Google Font name or local font file)
    - Whether logo needs to be inverted for dark backgrounds
+
+5. **Narration script approach:**
+   - **Auto-generate**: Claude writes the narration based on the page content / sections — user reviews and approves before TTS generation
+   - **Manual**: User provides the narration text for each section/slide
+   - **Collaborative**: Claude drafts the narration, presents it for editing, user finalises
+
+   **Do not generate voiceover audio until the narration text is confirmed by the user.**
+
+#### Requirements Checklist
+
+Before proceeding to Step 2, confirm you have ALL of the following:
+
+- [ ] Page/feature to demo (URL or presentation file path)
+- [ ] Confirmed ElevenLabs voice ID
+- [ ] Brand colours (primary + secondary/gradient)
+- [ ] Logo file path
+- [ ] Product name, tagline, URL, CTA text
+- [ ] Auth credentials and flow (screen recording mode only)
+- [ ] Narration text — either user-provided, or user-approved draft
+- [ ] User's preference for narration approach (auto/manual/collaborative)
+
+If any item is missing, ask the user before continuing. Do not fill in defaults or make assumptions.
 
 ### Step 2: Create Files
 
