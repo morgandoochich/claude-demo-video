@@ -14,8 +14,8 @@ Uses Playwright for screen recording, ElevenLabs for natural AI voiceover, and f
 ## Install
 
 ```bash
-/plugin marketplace add morgandoochich/demo-video-plugin
-/plugin install demo-video@morgandoochich-demo-video-plugin
+/plugin marketplace add morgandoochich/claude-demo-video
+/plugin install demo-video@morgandoochich-claude-demo-video
 ```
 
 ## Usage
