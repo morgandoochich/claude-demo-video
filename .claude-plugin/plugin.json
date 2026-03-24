@@ -1,0 +1,8 @@
+{
+  "name": "demo-video",
+  "description": "Create AI-narrated product demo videos and presentation walkthroughs using Playwright, ElevenLabs TTS, and ffmpeg.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Michael Dalic"
+  }
+}
