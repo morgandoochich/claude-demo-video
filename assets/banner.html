@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      width: 1280px; height: 640px;
+      background: linear-gradient(135deg, #0f0a1e 0%, #1a1035 40%, #0d1a2a 100%);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      color: white;
+      display: flex;
+      overflow: hidden;
+    }
+
+    .left {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 60px 0 60px 72px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 6px;
+      background: rgba(139, 92, 246, 0.15);
+      color: #a78bfa;
+      font-size: 14px;
+      font-weight: 600;
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      width: fit-content;
+      margin-bottom: 24px;
+    }
+    .badge .dot { width: 8px; height: 8px; border-radius: 50%; background: #8b5cf6; }
+
+    h1 {
+      font-size: 52px;
+      font-weight: 700;
+      letter-spacing: -2px;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+    h1 span { color: #8b5cf6; }
+
+    .desc {
+      font-size: 20px;
+      color: #8b8b9e;
+      line-height: 1.5;
+      max-width: 480px;
+    }
+
+    .tags {
+      display: flex;
+      gap: 10px;
+      margin-top: 28px;
+    }
+    .tag {
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 500;
+      border: 1px solid;
+    }
+    .tag-purple { background: rgba(139, 92, 246, 0.1); border-color: rgba(139, 92, 246, 0.3); color: #a78bfa; }
+    .tag-green { background: rgba(52, 211, 153, 0.1); border-color: rgba(52, 211, 153, 0.3); color: #34d399; }
+    .tag-cyan { background: rgba(34, 211, 238, 0.1); border-color: rgba(34, 211, 238, 0.3); color: #22d3ee; }
+
+    .right {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 48px 60px 48px 20px;
+    }
+
+    .terminal {
+      width: 100%;
+      background: #141416;
+      border: 1px solid #2a2a32;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    }
+    .terminal-bar {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 12px 16px;
+      background: #1a1a1e;
+      border-bottom: 1px solid #2a2a32;
+    }
+    .terminal-dot { width: 10px; height: 10px; border-radius: 50%; }
+    .terminal-title {
+      font-size: 12px;
+      color: #6b6b80;
+      margin-left: 8px;
+      font-family: monospace;
+    }
+    .terminal-body {
+      padding: 20px;
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      font-size: 14px;
+      line-height: 2;
+    }
+    .prompt { color: #34d399; }
+    .cmd { color: #e8e8ed; }
+    .comment { color: #4a4a5e; }
+    .output { color: #8b8b9e; }
+    .accent { color: #8b5cf6; }
+    .success { color: #34d399; }
+  </style>
+</head>
+<body>
+  <div class="left">
+    <div class="badge"><div class="dot"></div> Claude Code Plugin</div>
+    <h1><span>/demo-video</span></h1>
+    <p class="desc">Turn your codebase into narrated product videos. Screen recordings with highlights, or presentation walkthroughs — all with AI voiceover.</p>
+    <div class="tags">
+      <span class="tag tag-purple">Playwright</span>
+      <span class="tag tag-green">ElevenLabs</span>
+      <span class="tag tag-cyan">ffmpeg</span>
+    </div>
+  </div>
+  <div class="right">
+    <div class="terminal">
+      <div class="terminal-bar">
+        <div class="terminal-dot" style="background: #ef4444;"></div>
+        <div class="terminal-dot" style="background: #f59e0b;"></div>
+        <div class="terminal-dot" style="background: #22c55e;"></div>
+        <span class="terminal-title">Terminal</span>
+      </div>
+      <div class="terminal-body">
+        <div><span class="prompt">$</span> <span class="cmd">/demo-video</span> <span class="output">record the sign details page</span></div>
+        <div class="comment"># Generating voiceover (13 segments)...</div>
+        <div><span class="success">✓</span> <span class="output">intro (6.8s)</span></div>
+        <div><span class="success">✓</span> <span class="output">sign-header (6.6s)</span></div>
+        <div><span class="success">✓</span> <span class="output">sign-details (9.7s)</span></div>
+        <div class="comment"># Recording with Playwright...</div>
+        <div class="comment"># Composing final video...</div>
+        <div><span class="success">✓</span> <span class="accent">output.mp4</span> <span class="output">(101s, 2.2 MB, 1280x720)</span></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
